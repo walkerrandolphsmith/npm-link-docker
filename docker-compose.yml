@@ -1,0 +1,24 @@
+version: "3.3"
+
+volumes:
+  consumer_modules:
+  shared_lib_modules:
+
+services:
+  consumer:
+    image: npm-link-test-image
+    container_name: npm-link-test-container
+    build:
+      context: .
+      dockerfile: consumer/Dockerfile
+    command: npm start
+    working_dir: /usr/src/app
+    volumes:
+      # bind mount the app code from a host to a container
+      - ./consumer/:/usr/src/app/
+      # override the node_modules dir with docker-only but long-lived directory
+      - consumer_modules:/usr/src/app/node_modules
+      # bind mount the shared code from a host to a container
+      - ./shared-lib:/deps/components
+      # as before with node_modules, for the shared package
+      - shared_lib_modules:/deps/components/node_modules

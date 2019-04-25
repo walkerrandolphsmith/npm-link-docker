@@ -1,0 +1,17 @@
+{
+  "name": "kit",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "walkerrandolphsmith@gmail.com",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@dogmada/components": "0.0.1"
+  },
+  "devDependencies": {}
+}
